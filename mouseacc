@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [ "$1" == "" ]
+then
+  echo "Usage: mouseacc on|off|game [deceleration value, default: 5]"
+  exit
+fi
+
+if [ "$1" == "off" ]
+then
+  xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Profile' -1
+  xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Constant Deceleration' 2
+  xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Velocity Scaling' 1
+fi
+
+if [ "$1" == "on" ]
+then
+  xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Profile' 0
+  xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Constant Deceleration' 1
+  xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Velocity Scaling' 10
+fi
+
+if [ "$1" == "game" ]
+then
+  if [ "$2" == "" ]
+  then
+    decel="5"
+  else
+    decel="$2"
+  fi
+  xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Profile' -1
+  xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Constant Deceleration' $decel
+  xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Velocity Scaling' 1
+fi
+

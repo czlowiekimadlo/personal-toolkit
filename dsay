@@ -1,0 +1,46 @@
+#!/bin/bash
+
+ echo " "
+ echo -e " \E[1;31m                                    /   \ "
+ echo -e " \E[1;31m   _              \E[0;32m          )   \E[1;31m   ((   )) \E[0;32m    ("
+ echo -e " \E[1;31m  (@)             \E[0;32m         /|\  \E[1;31m    ))\E[0;32m_\E[1;31m((  \E[0;32m   /|\ "
+ echo -e ' \E[1;31m  |-|             \E[0;32m        / | \    (/\|/\)   / | \                      \E[1;31m(@)'
+ echo -en " \E[1;31m  | |\E[1;33m--------------------\E[0;32m/--|-voV\E[1;33m---\E[0;32m\\"
+ echo -en "\E[0;31m'\E[0;32m|\E[0;31m'\E[0;32m/\E[1;33m--\E[0;32mVov-|--\\"
+ echo -e "\E[1;33m---------------------\E[1;31m|-|"
+ echo -e " \E[1;31m  |-|                  \E[0;32m       '^"'`'"   (o o)  '^"'`                          \E[1;31m| |'
+ echo -e " \E[1;31m  | |                  \E[0;32m             '\Y/'                               \E[1;31m|-|"
+ echo -e " \E[1;31m  |-|                                                                   \E[1;31m| |"
+if [ $# == 0 ]
+then
+  echo -en " \E[1;31m  | |\E[1;37m"
+  echo -n "cowsay has been terminated" | sed -e :a -e 's/^.\{1,65\}$/ & /;ta'
+  echo -e " \E[1;31m|-|"
+fi
+while [ $# -ne 0 ]
+do
+  echo -en " \E[1;31m  | |\E[1;37m"
+
+  rem=$(( ${#1} % 2 ))
+  if [ $rem -eq 0 ]
+  then
+    echo -n "$1" | sed -e :a -e 's/^.\{1,65\}$/ & /;ta'
+  else
+    text=`echo -n "$1" | sed -e :a -e 's/^.\{1,65\}$/ & /;ta'`
+    echo -n "${text%?}"
+  fi
+  echo -e " \E[1;31m|-|"
+  shift
+done
+
+ echo -e " \E[1;31m  |-|                                                                   \E[1;31m| |"
+ echo -e " \E[1;31m  | |                                                                   \E[1;31m|-|"
+ echo -e " \E[1;31m  |_|\E[1;33m___________________________________________________________________\E[1;31m| |"
+ echo -en " \E[1;31m  (@)    \E[0;32m          l   /\ /         ( (       \ /\   l         \E[1;33m      "' `'"\\"
+ echo -e "\E[1;31m|-|"
+ echo -e " \E[0;32m                   l /   V           \ \       V   \ l           \E[1;31m       (@)"
+ echo -e " \E[0;32m                   l/                _) )_          \I"
+ echo -e " \E[32m                                     '\ /'"
+ echo -e " \E[32m                                      "' `'
+ echo -e " \E[0m"
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ "$1" == "" ]
+then
+  amount="2"
+else
+  amount="$1"
+fi
+
+git rebase -i HEAD~$amount

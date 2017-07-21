@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$1" == "" ]
+then
+  amount=1
+else
+  amount="$1"
+fi
+
+git reset --hard HEAD~$amount

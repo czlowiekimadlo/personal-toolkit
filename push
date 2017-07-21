@@ -1,0 +1,20 @@
+#!/bin/bash
+echo ""
+echo -e "     \e[31m    DELIVERY INBOUND! \e[32m"
+echo "--                              /"
+echo "--   !      /-----\============@--        ---==>"
+echo "--   |_____/_______\_____       \\"
+echo "--  /____________________\\"
+echo "--   \*__o__o__o__o__o__*/"
+echo "-- "
+
+if [ "$1" == "" ]
+then
+  BRANCH="`origin`"
+else
+  BRANCH="$1"
+fi
+
+echo -e "\e[33m"
+git push origin HEAD:refs/for/$BRANCH
+echo -e "\e[0m"

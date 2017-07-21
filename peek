@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ "$1" == "" ]
+then
+  git log --name-only -1
+else
+  git log --name-only -$1
+fi
