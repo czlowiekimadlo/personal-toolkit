@@ -8,6 +8,8 @@ echo "--  /____________________\\"
 echo "--   \*__o__o__o__o__o__*/"
 echo "-- "
 
+gerrit="`grep gerrit .git/config`"
+
 if [ "$1" == "" ]
 then
   BRANCH="`origin`"
@@ -16,5 +18,10 @@ else
 fi
 
 echo -e "\e[33m"
-git push origin HEAD:refs/for/$BRANCH
+if [ "$gerrit" == "" ]
+then
+  git push
+else
+  git push origin HEAD:refs/for/$BRANCH
+fi
 echo -e "\e[0m"

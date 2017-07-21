@@ -2,7 +2,7 @@
 
 if [ "$2" == "" ]
 then
-  origin=""
+  origin="`origin`"
 else
   origin="$2"
 fi
@@ -18,12 +18,7 @@ else
     echo ""
     if [[ $REPLY =~ ^[YyTt]$ ]]
     then
-      if [ "$origin" == "" ]
-      then
-        git checkout -b $1
-      else
-        git checkout -b $1 origin/$origin
-      fi
+      git checkout -b $1 origin/$origin
     fi
     exit
   fi
