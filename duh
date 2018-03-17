@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$1" == "" ]
+then
+  du -h --max-depth=1
+else
+  du -h --max-depth=0 $1
+fi
