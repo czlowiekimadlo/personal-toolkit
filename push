@@ -9,6 +9,15 @@ echo "--   \*__o__o__o__o__o__*/"
 echo "-- "
 
 gerrit="`grep gerrit .git/config`"
+bitbuc="`grep 'bitbucket.pearson.com' .git/config`"
+refs=""
+
+if [ "$gerrit" == "" ] && [ "$bitbuc" == "" ]
+then
+  refs=""
+else
+  refs="use those refs baby"
+fi
 
 if [ "$1" == "" ]
 then
@@ -18,7 +27,7 @@ else
 fi
 
 echo -e "\e[33m"
-if [ "$gerrit" == "" ]
+if [ "$refs" == "" ]
 then
   git push
 else
