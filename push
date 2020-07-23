@@ -1,4 +1,12 @@
 #!/bin/bash
+
+if [ ! -e .git/config ]
+then
+    dsay "Not in a git repository root"
+    exit
+fi
+
+
 echo ""
 echo -e "     \e[31m    DELIVERY INBOUND! \e[32m"
 echo "--                              /"
