@@ -7,4 +7,4 @@ else
   amount="$1"
 fi
 
-git reset --hard HEAD~$amount
+LANG=en_GB git reset --hard HEAD~$amount

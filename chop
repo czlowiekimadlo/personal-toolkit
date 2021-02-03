@@ -3,5 +3,5 @@ read -p "Remove branch $1? " -n 1 -r
 echo ""
 if [[ $REPLY =~ ^[YyTt]$ ]]
 then
-  git branch -D $1
+  LANG=en_GB git branch -D $1
 fi

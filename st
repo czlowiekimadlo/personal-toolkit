@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ "$1" == "" ]
 then
-  git status
+  LANG=en_GB git status
 else
-  git status $1
+  LANG=en_GB git status $1
 fi
 

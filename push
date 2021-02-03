@@ -17,7 +17,8 @@ echo "--   \*__o__o__o__o__o__*/"
 echo "-- "
 
 gerrit="`grep gerrit .git/config`"
-bitbuc="`grep 'bitbucket.pearson.com' .git/config`"
+#bitbuc="`grep 'bitbucket.pearson.com' .git/config`"
+bitbuc=""
 refs=""
 
 if [ "$gerrit" == "" ] && [ "$bitbuc" == "" ]
@@ -37,8 +38,8 @@ fi
 echo -e "\e[33m"
 if [ "$refs" == "" ]
 then
-  git push
+  LANG=en_GB git push origin HEAD:$BRANCH
 else
-  git push origin HEAD:refs/for/$BRANCH
+  LANG=en_GB git push origin HEAD:refs/for/$BRANCH
 fi
 echo -e "\e[0m"

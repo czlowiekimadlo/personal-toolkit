@@ -6,4 +6,4 @@ else
   amount="$1"
 fi
 
-git rebase -i HEAD~$amount
+LANG=en_GB git rebase -i HEAD~$amount
