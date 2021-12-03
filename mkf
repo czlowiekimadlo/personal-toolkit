@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$1" == "" ]
+then
+    echo "No feature name given"
+    exit;
+fi
+
+git push origin origin/develop:refs/heads/features/$1
+sw feature-$1 features/$1
