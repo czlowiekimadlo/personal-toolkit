@@ -1,18 +1,21 @@
 #!/bin/bash
 
-guake -n 1 -r "git" -e "ng"
-guake -n 2 -r "grep" -e "ng"
-guake -n 3 -r "test" -e "ng"
-guake -n 4 -r "build" -e "ng"
-guake -n 5 -r "db-user" -e "mysql -u root"
-guake -n 6 -r "db-content" -e "mysql -u root"
-guake -n 7 -r "htop" -e "htop"
-guake -n 8 -r "proxy"
-guake -n 9 -r "tof" -e "cd ~/Projects/Tanks-of-Freedom"
-guake -n 10 -r "tof-server" -e "cd ~/Projects/Tanks-of-Freedom-Server"
-guake -n 11 -r "tof-server-runtime" -e "cd ~/Projects/Tanks-of-Freedom-Server"
-guake -n 12 -r "tof-browser" -e "cd ~/Projects/tanks-of-freedom-browser"
+declare -A tablist
 
+tablist['htop']='htop'
+#tablist['tof']='cd ~/Projekty/Tanks-of-Freedom'
+tablist['godot-bin']='cd ~/bin/godot'
+tablist['tof3d']='cd ~/Projekty/Tanks-of-Freedom-3-D'
+tablist['tof-server']='cd ~/Projekty/Tanks-of-Freedom-Server'
+#tablist['tofs-venv']='cd ~/Projekty/Tanks-of-Freedom-Server; source venv/bin/activate'
+#tablist['rif']='cd ~/Projekty/rat-is-fat'
+tablist['cipl']='cd ~/Projekty/czlowiekimadlo.pl'
+#tablist['tab_name']='init_command'
 
+tabindex=1
+
+for key in "${!tablist[@]}"; do
+    guake -n $tabindex -r "$key" -e "${tablist[$key]}"
+done
 
 guake -s 1
