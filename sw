@@ -7,7 +7,7 @@ else
   origin="$2"
 fi
 
-if [ "$3" == ""]
+if [ "$3" == "" ]
 then
   remote="`remote`"
 else
