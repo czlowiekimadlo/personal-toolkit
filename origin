@@ -1,5 +1,12 @@
 #!/bin/bash
 
-originName=`LANG=en_GB git branch -vv | sed 's/\* /ACTIVE_BRANCH /' | grep ACTIVE_BRANCH | awk '{ print $4 }' | sed 's/\[origin\/\([a-zA-Z0-9_\.\/-]*\).*/\1/'`
+if [ "$1" == "" ]
+then
+  origin="origin"
+else
+  origin="$1"
+fi
+
+originName=`LANG=en_GB git branch -vv | sed 's/\* /ACTIVE_BRANCH /' | grep ACTIVE_BRANCH | awk '{ print $4 }' | sed "s/\[$origin\/\([a-zA-Z0-9_\.\/-]*\).*/\1/"`
 
 echo $originName
