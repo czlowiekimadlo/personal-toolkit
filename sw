@@ -7,6 +7,13 @@ else
   origin="$2"
 fi
 
+if [ "$3" == ""]
+then
+  remote="`remote`"
+else
+  remote="$3"
+fi
+
 if [ "$1" == "" ]
 then
   LANG=en_GB git branch -vv
@@ -18,7 +25,7 @@ else
     echo ""
     if [[ $REPLY =~ ^[YyTt]$ ]]
     then
-      LANG=en_GB git checkout -b $1 $origin
+      LANG=en_GB git checkout -b $1 $remote/$origin
     fi
     exit
   fi

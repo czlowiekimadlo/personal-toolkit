@@ -35,11 +35,19 @@ else
   BRANCH="$1"
 fi
 
+if [ "$2" == "" ]
+then
+  remote="`remote`"
+else
+  remote="$2"
+fi
+
+
 echo -e "\e[33m"
 if [ "$refs" == "" ]
 then
-  LANG=en_GB git push origin HEAD:$BRANCH
+  LANG=en_GB git push $remote HEAD:$BRANCH
 else
-  LANG=en_GB git push origin HEAD:refs/for/$BRANCH
+  LANG=en_GB git push $remote HEAD:refs/for/$BRANCH
 fi
 echo -e "\e[0m"

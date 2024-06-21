@@ -1,5 +1,7 @@
 #!/bin/bash
 
-originName=`LANG=en_GB git branch -vv | sed 's/\* /ACTIVE_BRANCH /' | grep ACTIVE_BRANCH | awk '{ print $4 }' | sed "s/\[\([a-zA-Z0-9_\.\/-]*\)\/\([a-zA-Z0-9_\.\/-]*\).*/\1\/\2/"`
+remoteName="`remote`"
+
+originName=`LANG=en_GB git branch -vv | sed 's/\* /ACTIVE_BRANCH /' | grep ACTIVE_BRANCH | awk '{ print $4 }' | sed "s/\[$remoteName\/\([a-zA-Z0-9_\.\/-]*\).*/\1/"`
 
 echo $originName
